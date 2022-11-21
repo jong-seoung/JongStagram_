@@ -60,9 +60,10 @@
 
     <!-- 메인 화면 설정-->
     <div style="display: flex; flex-direction: row; text-align: center; justify-content: center; padding-top: 70px; background-color: #FAFAFA">
+      <!-- 좌측 화면-->
       <div style="width: 600px; height: 1000px; margin-right: 256px;">
         <!-- 게시글 -->
-        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%">
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
 
           <!-- 사용자 정보 -->
         <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
@@ -72,7 +73,7 @@
                 src="{% static 'images/profile.png' %}";>
             </div>
             <div>
-              00_jongseoung
+              jong_00
             </div>
           </div>
           <div style="font-size: 25px; margin-right: 15px;">
@@ -109,7 +110,7 @@
           </div>
  
           <!-- 스토리 -->
-          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>00_jongseoung</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
           <!-- 댓글 -->
           <div>
             <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
@@ -124,10 +125,617 @@
             </div>
           </div>
         </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+        <!-- 게시글 -->
+        <div style="border: solid; border-color: gainsboro; background-color: white; border-radius: 3%; margin-top: 30px;" >
+
+          <!-- 사용자 정보 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+          <div style="display: flex; flex-direction: row; align-items: center;">
+            <div class="box">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div>
+              jong_00
+            </div>
+          </div>
+          <div style="font-size: 25px; margin-right: 15px;">
+            <b>...</b>
+          </div>
+        </div>
+          <!-- 이미지 -->
+          <div style="border:2px solid; border-color: gainsboro; margin: 10px; ">
+            <img style="width: 100%; height: 70%;" src="{% static 'images/user_story.png' %}";>
+          </div>
+
+          <!-- 아이콘 집합-->
+          <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
+            <div>
+              <span class="material-symbols-outlined">favorite</span>
+              <span class="material-symbols-outlined">chat_bubble</span>
+              <span class="material-symbols-outlined">send</span>
+            </div>
+            <div>
+              <span class="material-symbols-outlined">bookmark</span>
+            </div>
+          </div>
+          <!-- 좋아요 -->
+          <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box2">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div>
+                000님<b>외 24명</b>이 좋아합니다
+              </div>
+            </div>       
+          </div>
+ 
+          <!-- 스토리 -->
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <!-- 댓글 -->
+          <div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          </div>
+
+          <!-- 댓글 입력 창-->
+          <div class="input-group mb-3">
+            <div class="form-floating">
+              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
+              <label>댓글 입력</label>
+            </div>
+          </div>
+        </div>
+
       </div>
 
-      <div style="width: 400px; height: 1000px; background: orange; position: fixed; left: 62%;">
-        오른쪽
+
+      <!--우측 화면-->
+      <div style="width: 400px; height: 1000px; background: #FAFAFA; position: fixed; left: 62%;">
+          <!-- 사용자 정보 -->
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div style="display: flex; flex-direction: row; align-items: center;">
+              <div class="box" style="height: 50px; width: 50px;">
+                <img class="profile"
+                  src="{% static 'images/profile.png' %}";>
+              </div>
+              <div style="margin-left: 10px; text-align: left;" >
+                <div>
+                  jong_00
+                </div>
+                <div style="color: gray;">
+                  백종성
+                </div>
+              </div>
+            </div>
+            <a href="" style="font-weight: bold; margin-right: 35px; text-decoration: none; font-size: 15px;">
+              전환
+            </a>
+          </div>
+        <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 10px 20px;">
+          <div style="font-weight: blod; color: gray;">
+           회원님을 위한 추천
+          </div> 
+          <div>
+            <a href="" style="color: black; text-decoration: none; font-weight: bold; font-size: 14px;">모두 보기</a>
+          </div>
+        </div>
+        <!-- 추천 프로필 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 0 10px;">
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div class="box" style="height: 35px; width: 35px;">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div style="text-align: left; font-size: 13px; justify-content: space-between; margin: 0 5px;" >
+                <div>
+                  gkwns54176
+                </div>
+                <div style="color: gray; font-size: 13px;">
+                  isuhuni926님 외 5명이 팔로우합니다
+                </div>
+              </div>
+            </div>
+          </div>
+            <a href="" style="font-weight: bold; margin-right: 15px; text-decoration: none;">
+              팔로우
+            </a>
+        </div>
+        <!-- 추천 프로필 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 0 10px;">
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div class="box" style="height: 35px; width: 35px;">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div style="text-align: left; font-size: 13px; justify-content: space-between; margin: 0 5px;" >
+                <div>
+                  bh_k09302
+                </div>
+                <div style="color: gray; font-size: 13px;">
+                  saechan_wu님 외 1명이 팔로우합니다
+                </div>
+              </div>
+            </div>
+          </div>
+            <a href="" style="font-weight: bold; margin-right: 15px; text-decoration: none;">
+              팔로우
+            </a>
+        </div>
+        <!-- 추천 프로필 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 0 10px;">
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div class="box" style="height: 35px; width: 35px;">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div style="text-align: left; font-size: 13px; justify-content: space-between; margin: 0 5px;" >
+                <div>
+                  come_on__llouiss
+                </div>
+                <div style="color: gray; font-size: 13px;">
+                  instagram 신규 가입
+                </div>
+              </div>
+            </div>
+          </div>
+            <a href="" style="font-weight: bold; margin-right: 15px; text-decoration: none;">
+              팔로우
+            </a>
+        </div>
+        <!-- 추천 프로필 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 0 10px;">
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div class="box" style="height: 35px; width: 35px;">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div style="text-align: left; font-size: 13px; justify-content: space-between; margin: 0 5px;" >
+                <div>
+                  heyeongjin9286
+                </div>
+                <div style="color: gray; font-size: 13px;">
+                  tttt__jd.minn님 외 1명이 팔로우합니다
+                </div>
+              </div>
+            </div>
+          </div>
+            <a href="" style="font-weight: bold; margin-right: 15px; text-decoration: none;">
+              팔로우
+            </a>
+        </div>
+        <!-- 추천 프로필 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 0 10px;">
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div class="box" style="height: 35px; width: 35px;">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div style="text-align: left; font-size: 13px; justify-content: space-between; margin: 0 5px;" >
+                <div>
+                  dravii_slap54
+                </div>
+                <div style="color: gray; font-size: 13px;">
+                  sjh0193님이 팔로우합니다
+                </div>
+              </div>
+            </div>
+          </div>
+            <a href="" style="font-weight: bold; margin-right: 15px; text-decoration: none;">
+              팔로우
+            </a>
+        </div>
+        <!-- 추천 프로필 -->
+        <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between; margin: 0 10px;">
+          <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div class="box" style="height: 35px; width: 35px;">
+              <img class="profile"
+                src="{% static 'images/profile.png' %}";>
+            </div>
+            <div style="display: flex; flex-direction: row;">
+              <div style="text-align: left; font-size: 13px; justify-content: space-between; margin: 0 5px;" >
+                <div>
+                  jong_01
+                </div>
+                <div style="color: gray; font-size: 13px;">
+                  추천 사유
+                </div>
+              </div>
+            </div>
+          </div>
+            <a href="" style="font-weight: bold; margin-right: 15px; text-decoration: none;">
+              팔로우
+            </a>
+        </div>
+        <div style="color: gray; font-size: 11px; text-align: left; margin-left: 20px;">소개 도움말 홍보센터 API 채용정보</div>
+        <div style="color: gray; font-size: 11px; text-align: left; margin-left: 20px;">개인정보처리방침 약관 위치 언어</div>
+        <br>
+        <div style="color: gray; font-size: 11px; text-align: left; margin-left: 20px;">© 2022 INSTAGRAM FROM META</div>
       </div>
     </div>
 
