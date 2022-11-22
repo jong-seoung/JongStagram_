@@ -13,6 +13,9 @@
     <link
     href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Symbols+Outlined|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
 
+    <!-- 제이쿼리 -->
+    <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+
     <style>
       .box {
       width: 30px;
@@ -37,10 +40,46 @@
         height: 100%;
         object-fit: cover;
       }
+
+      .modal_overlay {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: rgba(0, 0, 0, 0.8);
+      backdrop-filter: blur(1.5px);
+      -webkit-backdrop-filter: blur(1.5px);
+      }
+
+      .modal_window {
+      background: white;
+      backdrop-filter: blur(13.5px);
+      -webkit-backdrop-filter: blur(13.5px);
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      width: 800px;
+      height: 600px;
+      position: relative;
+      padding: 10px;
+      }
+
+      .modal_image_upload{
+        outline: 2px dashed black ;
+        outline-offset:-10px;
+        text-align: center;
+        transition: all .15s ease-in-out;
+        width:780px;
+        height: 548px;
+      }
     </style>
   </head>
   <body style=" background: #FAFAFA;">
-     
+
     <!-- 네비 바 설정-->
     <nav class="navbar navbar-expand-lg bg-light" style="position: fixed; width: 100%; padding: 0px;">
       
@@ -51,7 +90,7 @@
         <div>
           <span class="material-icons">home</span>
           <span class="material-icons-outlined">send</span>
-          <span class="material-icons">add</span>
+          <span id="nav_bar_add_box" class="material-symbols-outlined">add_box</span>
           <span class="material-icons-outlined">explore</span>
           <span class="material-icons">favorite_border</span>
         </div>
@@ -107,13 +146,13 @@
                   src="{% get_static_prefix %}{{feed.profile_image}}">
               </div>
               <div>
-                000님<b>외 {{feed.like_count}}명</b>이 좋아합니다
+                hera님<b> 외 {{feed.like_count}}명</b>이 좋아합니다
               </div>
             </div>       
           </div>
  
           <!-- 스토리 -->
-          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>jong_00</b> 요즘 해외 여행을 못가니 제주도를 갑니다.</div>
+          <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>{{feed.user_id}}</b> {{feed.content}}</div>
           <!-- 댓글 -->
           <div>
             <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
@@ -303,5 +342,87 @@
       </div>
     </div>
 
+    <!-- 모달 만들기 -->
+    <div class="modal_overlay">
+      <div class="modal_window">
+        <div style="display: flex; flex-direction: row; justify-content: space-between;">
+          <div style="width: 40px;">
+            
+          </div>
+          <div>
+          새 이미지 업로드
+          </div>
+          <div style="width: 40px;">
+            <span class="material-symbols-outlined">close</span>
+          </div>
+        </div>
+        <div class="modal_image_upload">
+
+        </div>
+      </div>
+    </div>
+
+    <!-- 제이 쿼리-->
+    <script>
+      $('#nav_bar_add_box').click(function(){
+        $('.modal_overlay').css({
+          display : 'flex',
+        });
+        $(document.body).css({
+          overflow : 'hidden'
+        });
+      });
+
+      $('.modal_image_upload')
+        .on("dragover", dragOver)
+        .on("dragleave", dragOver)
+        .on("drop", uploadFiles);
+ 
+      function dragOver(e){
+        e.stopPropagation();
+        e.preventDefault();
+        if (e.type == "dragover") {
+          $(e.target).css({
+          "background-color": "black",
+          "outline-offset": "-20px"
+          });
+        } 
+        else {
+          $(e.target).css({
+          "background-color": "gray",
+          "outline-offset": "-10px"
+          });
+        }
+      }
+    
+      function uploadFiles(e){
+        e.stopPropagation();
+        e.preventDefault();
+
+        e.dataTransfer = e.originalEvent.dataTransfer; //2
+        var files = e.target.files || e.dataTransfer.files;
+    
+        if (files.length > 1) {
+          alert('하나만 올려라.');
+          return;
+        }
+        if (files[0].type.match(/image.*/)) {
+          $(e.target).css({
+          "background-image": "url(" + window.URL.createObjectURL(files[0]) + ")",
+          "outline": "none",
+          "background-size": "100% 100%"
+          });
+        }
+        else{
+        alert('이미지가 아닙니다.');
+        return;
+        }
+      }
+
+
+      
+    </script>
   </body>
+
+
 </html>
