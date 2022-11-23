@@ -16,9 +16,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from .views import main
-from polls.content.views import Main
+from polls.content.views import Main,UploadFeed
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', Main.as_view()),
+    path('content/upload',UploadFeed.as_view())
 ]
