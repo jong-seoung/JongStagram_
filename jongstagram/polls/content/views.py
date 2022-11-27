@@ -6,11 +6,22 @@ from .models import Feed
 import os
 from uuid import uuid4 # 랜덤한 아이디를 넣어줌
 from config.settings import MEDIA_ROOT
+from polls.user.models import User
 
 class Main(APIView):
     def get(self,request):
         feed_list = Feed.objects.all().order_by('-id') #select * from content_feed;
-        return render(request,"jongstagram/main.html",context=dict(feed_list=feed_list))
+
+        print("로그인한 사용자:",request.session['email'])
+        email = request.session['email']
+
+        if email is None:
+            return render(request,"user/login.html")
+        user = User.objects.filter(email=email).first()
+
+        if user is None:
+            return render(request,"user/login.html")
+        return render(request,"jongstagram/main.html",context=dict(feed_list=feed_list, user=user))
 
 class UploadFeed(APIView):
     def post(self,request):
