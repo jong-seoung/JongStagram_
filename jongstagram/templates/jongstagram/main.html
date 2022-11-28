@@ -89,6 +89,12 @@
         width:780px;
         height: 548px;
       }
+
+      @media (max-width: 1300px) {
+        #main_screen_right {
+          display: none;
+        }
+      } 
     </style>
   </head>
   <body style=" background: #FAFAFA;">
@@ -131,7 +137,7 @@
     </nav>
 
     <!-- 메인 화면 설정-->
-    <div style="display: flex; flex-direction: row; text-align: center; justify-content: center; padding-top: 70px; background-color: #FAFAFA;">
+    <div id="main_screen"style="display: flex; flex-direction: row; text-align: center; justify-content: center; padding-top: 70px; background-color: #FAFAFA;">
       <!-- 좌측 화면-->
       <div style="width: 600px; height: 1000px; margin-right: 256px;">
 
@@ -145,10 +151,10 @@
             <div style="display: flex; flex-direction: row; align-items: center;">
               <div class="box">
                 <img class="profile"
-                  src="{{feed.profile_image}}">
+                  src="{% get_media_prefix %}{{user.profile_img}}">
               </div>
               <div>
-                {{feed.user_id}}
+                {{feed.nickname}}
               </div>
             </div>
             <div style="font-size: 25px; margin-right: 15px;">
@@ -176,38 +182,38 @@
             <div style="display: flex; flex-direction: row; align-items: center;">
               <div class="box2">
                 <img class="profile"
-                  src="{% get_media_prefix %}{{user.profile_img}}">
+                  src="{% static 'img/profile.png' %}">
               </div>
               <div>
-                hera님<b> 외 {{feed.like_count}}명</b>이 좋아합니다
+                000 님<b> 외 {{feed.like_count}}명</b>이 좋아합니다
               </div>
             </div>       
           </div>
- 
+
           <!-- 스토리 -->
           <div style="text-align: left; font-size: 15px; margin: 5px 0px 0px 10px;"> <b>{{feed.user_id}}</b> {{feed.content}}</div>
           <!-- 댓글 -->
-          <div>
-            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>cheese_dong_</b> 나도 제주도 가고 싶다.</div>
-            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>hee_j</b> 제주도에 외국인 관광객이 없어서 놀기 좋다던데...</div>
+          <div id="reply_list_{{feed.id}}">
+            {% for reply in feed.reply_list %}
+            <div style="text-align: left; font-size: 12px; margin: 0px 15px;"> <b>{{reply.nickname}}</b> {{reply.reply_content}}</div>
+            {% endfor %}
           </div>
 
           <!-- 댓글 입력 창-->
-          <div class="input-group mb-3">
-            <div class="form-floating">
-              <input type="text" class="form-control" style="box-shadow: none; border: 1px solid gainsboro; margin-top: 5px; height: 40px;">
-              <label>댓글 입력</label>
+          <div style="display: flex; flex-direction: row; margin-top: 5px; align-items: center;">
+            <input id="reply_{{feed.id}}" type="text" class="form-control" placeholder="댓글 달기.." style="border-radius: 13px">
+            <div feed_id="{{feed.id}}" class="upload_reply" style="width: 50px; color: cornflowerblue; font-weight: bold;" >
+              게시
             </div>
           </div>
+          
         </div>
         {% endfor %}
         <!-- 피드 박스 끝-->
-
       </div>
-
-
       <!--우측 화면-->
-      <div style="width: 400px; height: 1000px; background: #FAFAFA; position: fixed; left: 62%;">
+      
+      <div id="main_screen_right"style="width: 400px; height: 1000px; background: #FAFAFA; position: fixed; left: 62%; margin-top: 23px;">
           <!-- 사용자 정보 -->
           <div style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
             <div style="display: flex; flex-direction: row; align-items: center;">
@@ -230,7 +236,7 @@
           </div>
         <div style="display: flex; flex-direction: row; justify-content: space-between; margin: 10px 20px;">
           <div style="font-weight: blod; color: gray;">
-           회원님을 위한 추천
+            회원님을 위한 추천
           </div> 
           <div>
             <a href="" style="color: black; text-decoration: none; font-weight: bold; font-size: 14px;">모두 보기</a>
@@ -374,7 +380,6 @@
         <div style="color: gray; font-size: 11px; text-align: left; margin-left: 20px;">© 2022 INSTAGRAM FROM META</div>
       </div>
     </div>
-
     <!-- 첫번째 모달 만들기 -->
     <div id = "first_modal" class="modal_overlay">
       <div class="modal_window">
@@ -425,8 +430,7 @@
                 </div>
               </div>
             </div>
-            <textarea id="input_feed_content"class="form-control"  style="width: 260px; height: 430px; margin: 5px;">
-            </textarea>
+            <textarea id="input_feed_content"class="form-control" style="width: 260px; height: 430px; margin: 5px; text-align: left;"></textarea>
             <button type="button" id= "feed_create_button"class="btn btn-primary" style="width: 260px; margin: 5px;">
               공유하기
             </button>
@@ -442,22 +446,54 @@
       var src = jQuery('#create_feed_profile').attr("src");
       let files;
 
+      $('.upload_reply').click(function(event){
+        console.log(event.target.attributes.getNamedItem('feed_id').value);
+        let feed_id = event.target.attributes.getNamedItem('feed_id').value;
+        let reply_id = 'reply_'+feed_id;
+        let reply_content = $('#'+reply_id).val();
+
+
+        if(reply_content.length <= 0){
+          alert("댓글을 입력하세요");
+          return 0;
+        }
+
+        $.ajax({
+            url: "/content/reply",
+            data: {
+                feed_id : feed_id,
+                reply_content : reply_content
+            },
+            method: "POST",
+
+            success: function (data){
+                console.log("성공");
+                $("#reply_list_"+feed_id).append("<div style='text-align: left; font-size: 12px; margin: 0px 15px;'><b>{{user.nickname}} </b>"+reply_content+"</div>")
+                
+            },
+            error: function (request, status, error){
+                console.log("에러");
+            },
+            complete: function (){
+                console.log("완료");
+                $('#'+reply_id).val('');
+            }
+            });
+        });
+
+
       // 공유하기 클릭
       $('#feed_create_button').click(function(){
-        alert("공유하기 눌렀다.");
+        alert("공유되었습니다.");
         let file = files[0];
         let image = files[0].name;
         let content =  $('#input_feed_content').val();
-        let user_id = "jong_00";
-        let profile_image = src;
 
         let fd = new FormData();
 
         fd.append('file',file);
         fd.append('image',image);
         fd.append('content',content);
-        fd.append('user_id',user_id);
-        fd.append('profile_image',profile_image);
 
         $.ajax({
           url: "/content/upload",
@@ -494,7 +530,7 @@
         .on("dragover", dragOver)
         .on("dragleave", dragOver)
         .on("drop", uploadFiles);
- 
+
       function dragOver(e){
         e.stopPropagation();
         e.preventDefault();

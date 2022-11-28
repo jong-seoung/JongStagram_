@@ -3,11 +3,11 @@ from django.db import models
 
 class User(AbstractBaseUser):
     """
-     유저 프로필 파일
-     유저 닉네임
-     유저 이름 - 본명
-     유저 이메일 주소
-     유저 비밀번호 
+    유저 프로필 파일
+    유저 닉네임
+    유저 이름 - 본명
+    유저 이메일 주소
+    유저 비밀번호 
     """
 
     profile_img = models.TextField()
