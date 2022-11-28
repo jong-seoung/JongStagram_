@@ -3,7 +3,9 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 from .models import User
 from django.contrib.auth.hashers import make_password
-
+from uuid import uuid4 # 랜덤한 아이디를 넣어줌
+from config.settings import MEDIA_ROOT
+import os
 # 회원 가입 창
 class Join(APIView):
     def get(self,request):
@@ -40,3 +42,36 @@ class login(APIView):
             return Response(status=200)
         else:
             return Response(status=400, data= dict(message="회원정보가 잘못되었습니다."))
+
+# 로그 아웃
+class logout(APIView):
+    def get(self,request):
+        request.session.flush()
+        return render(request,"user/login.html")
+    
+
+class Uploadprofile(APIView):
+    def post(self,request):
+
+        # 파일 불러오기
+        file = request.FILES['file']
+
+        uuid_name = uuid4().hex
+        save_path = os.path.join(MEDIA_ROOT, uuid_name)
+
+        # 파일을 읽어서 파일을 만들기
+        with open(save_path, 'wb+') as destination:
+            for chunk in file.chunks():
+                destination.write(chunk)
+
+        profile_image = uuid_name
+        email = request.data.get('email')
+
+        user = User.objects.filter(email=email).first()
+
+        user.profile_img = profile_image
+        user.save()
+
+
+        return Response(status=200)
+    

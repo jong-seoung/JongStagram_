@@ -33,7 +33,7 @@
             </div>
             <div style="flex-direction: flex; padding: 10px 20px; text-align: center; border: solid 2px rgba(219, 219, 219, 1); width: 300px; height: 50px; margin-top: 10px; background: white;">
                 <div>
-                    계정이 없으신가요? <a href="join">가입하기</a>
+                    계정이 없으신가요? <a href="/user/join">가입하기</a>
                 </div>
             </div>
         </div>
@@ -57,7 +57,7 @@
 
                 success: function (data){
                     console.log("성공");
-                    alert("로그인에 성공하였습니다. 로그인 해주세요.")
+                    alert("로그인에 성공하였습니다.")
                     location.replace("/")
                 },
                 error: function (request, status, error){
