@@ -138,6 +138,7 @@
 
     <!-- 메인 화면 설정-->
     <div id="main_screen"style="display: flex; flex-direction: row; text-align: center; justify-content: center; padding-top: 70px; background-color: #FAFAFA;">
+      
       <!-- 좌측 화면-->
       <div style="width: 600px; height: 1000px; margin-right: 256px;">
 
@@ -169,15 +170,18 @@
           <!-- 아이콘 집합-->
           <div style="display: flex; flex-direction: row;justify-content: space-between; margin: 0 10px;">
             <div>
-              <span class="material-symbols-outlined">favorite</span>
-              <span class="material-symbols-outlined">chat_bubble</span>
-              <span class="material-symbols-outlined">send</span>
+              <span id="favorite_{{feed.id}}" feed_id="{{feed.id}}" class="favorite material-icons-outlined" style="color: red; cursor: pointer;">
+              {% if feed.is_liked %}favorite{% else %}favorite_border{% endif %}
+              </span>
             </div>
             <div>
-              <span class="material-symbols-outlined">bookmark</span>
+              <span id="bookmark_{{feed.id}}" feed_id="{{feed.id}}" class="bookmark material-icons-outlined" style="cursor: pointer;">
+                {% if feed.is_marked %}bookmark{% else %}bookmark_border{% endif %}
+                </span>
             </div>
           </div>
           <!-- 좋아요 -->
+          <hr style="border:10px color= silver; margin-top: 5px;" width="100%">
           <div style="text-align: left; font-size: 13px; margin: -5px 0px 0px 12px;">
             <div style="display: flex; flex-direction: row; align-items: center;">
               <div class="box2">
@@ -187,7 +191,7 @@
               <div>
                 000 님<b> 외 {{feed.like_count}}명</b>이 좋아합니다
               </div>
-            </div>       
+            </div>
           </div>
 
           <!-- 스토리 -->
@@ -445,6 +449,70 @@
 
       var src = jQuery('#create_feed_profile').attr("src");
       let files;
+
+      $(".bookmark").click(function(event){
+        let feed_id = event.target.attributes.getNamedItem('feed_id').value;
+        let bookmark_id = event.target.id;
+        let bookmark_text = $.trim($('#'+bookmark_id).html());
+        console.log(bookmark_text);
+        if (bookmark_text == 'bookmark'){
+          $('#'+bookmark_id).html('bookmark_border');
+        }else{ 
+          $('#'+bookmark_id).html('bookmark');
+        }
+
+        $.ajax({
+            url: "/content/bookmark",
+            data: {
+                feed_id : feed_id,
+                bookmark_text : bookmark_text
+            },
+            method: "POST",
+
+            success: function (data){
+                console.log("성공");
+            },
+            error: function (request, status, error){
+                console.log("에러");
+            },
+            complete: function (){
+                console.log("완료");
+            }
+            });
+
+      });
+
+      $(".favorite").click(function(event){
+        let feed_id = event.target.attributes.getNamedItem('feed_id').value;
+        let favorite_id = event.target.id;
+        let favorite_text = $.trim($('#'+favorite_id).html());
+        console.log(favorite_text);
+        if (favorite_text == 'favorite'){
+          $('#'+favorite_id).html('favorite_border');
+        }else{ 
+          $('#'+favorite_id).html('favorite');
+        }
+
+        $.ajax({
+            url: "/content/like",
+            data: {
+                feed_id : feed_id,
+                favorite_text : favorite_text
+            },
+            method: "POST",
+
+            success: function (data){
+                console.log("성공");
+            },
+            error: function (request, status, error){
+                console.log("에러");
+            },
+            complete: function (){
+                console.log("완료");
+            }
+            });
+
+      });
 
       $('.upload_reply').click(function(event){
         console.log(event.target.attributes.getNamedItem('feed_id').value);
